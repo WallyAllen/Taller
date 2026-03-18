@@ -13,7 +13,8 @@ words = [
 
 word = random.choice(words)
 guessed = []
-attempts = 6
+attempts = 10
+score = attempts
 
 print("¡Bienvenido al Ahorcado!")
 print()
@@ -32,6 +33,8 @@ while attempts > 0:
     # Verificar si el jugador ya adivinó la palabra completa
     if "_" not in progress:
         print("¡Ganaste!")
+        score += 6 #se que puedo hacer directamente print(score + 6) pero de esta forma NO modifico el valor
+        print(score)
         break
         
     print(f"Intentos restantes: {attempts}")
@@ -48,6 +51,7 @@ while attempts > 0:
     else:
         guessed.append(letter)
         attempts -= 1
+        score -= 1
         print("Esa letra no está en la palabra.")
         
     print()
@@ -55,3 +59,5 @@ while attempts > 0:
 # Este else pertenece al 'while', se ejecuta si sales del bucle sin usar 'break' (es decir, cuando los intentos llegan a 0)
 else:
     print(f"¡Perdiste! La palabra era: {word}")
+    score = 0
+    print(score)
