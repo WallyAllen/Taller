@@ -8,7 +8,7 @@ categorias = {
 guessed = []
 attempts = 10
 score = attempts
-
+#estoy poniendo esto a ver si arregle o no el git XD
 print("¡Bienvenido al Ahorcado!")
 print("Elegí alguna de nuestras categorias:")
 for categoria in categorias.keys():
