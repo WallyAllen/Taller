@@ -12,13 +12,18 @@ for categoria in categorias.keys():
     print(categoria)  
 
 eleccion = input("Ingresá tu seleccion: ")
-if eleccion in categorias:
-    words = random.sample(categorias[eleccion], k=3)        #la variable k selecciona la cantidad de palabras distintas que elige
+while True:    #implemente este while para evitar errores a la hora de seleccionar la categoria
+    if eleccion in categorias:
+        words = random.sample(categorias[eleccion], k= len(categorias[eleccion]))  #la variable k selecciona la cantidad de palabras distintas que elige
+        break #salgo del bucle
+    else:
+        eleccion = input("Ingresá tu seleccion: ")    
+        print("Categoria no encontrada")
+score = 0
 for word in  words:
     print("empezando nueva ronda") 
     guessed = []                                     #cambie el lugar donde se definen las variables para que el bucle for las resetee
-    attempts = 10
-    score += 10                             #No sé si es correcto, pero ahora le sumo 10 por cada iteracion, asi mantiene un score final
+    attempts = 6                             #No sé si es correcto, pero ahora le sumo 10 por cada iteracion, asi mantiene un score final
     while attempts > 0:                                     #ahora este while esta dentro del for
                                           # Mostrar progreso: letras adivinadas y guiones para las que faltan
         progress = ""
@@ -41,7 +46,7 @@ for word in  words:
         print(f"Letras usadas: {', '.join(guessed)}")
         letter = input("Ingresá una letra: ")
         
-        if len(letter) > 1:
+        if len(letter) != 1 or not letter.isalpha():
             print("Entrada no válida.")
         elif letter in guessed:
             print("Ya usaste esa letra.")
@@ -57,5 +62,8 @@ for word in  words:
         print()
     else:
         print(f"¡Perdiste! La palabra era: {word}")
-        score = 0
+        if score >= 6: 
+            score -= 6
+        else:
+            score = 0
         print(score)
