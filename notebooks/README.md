@@ -2,7 +2,9 @@ Para instalar Jupyter Notebooks debemos de abrir la terminal y poner el siguient
 
 pip install jupyterlab
 
-En caso de tener problemas con la ruta, lo recomendable es verificar que esten instalados ambos. Utilizar: 
+En caso de tener problemas con la ruta, lo recomendable es verificar que esten instalados ambos.
+
+Utilizar: 
 
 python --version (De no reconocer python, cambiar por py--version)
 
